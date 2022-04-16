@@ -8,75 +8,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/epilog.css">
     <script>
-        //funções para remover textos
-        setTimeout(function() {
-            var msg = document.getElementById("um ");
-            msg.parentNode.removeChild(msg);
-        }, 4000);
-        setTimeout(function() {
-            var msg = document.getElementById("dois ");
-            msg.parentNode.removeChild(msg);
-            carregardois('tres');
-        }, 10000);
-        setTimeout(function() {
-            var msg = document.getElementById("tres ");
-            msg.parentNode.removeChild(msg);
-            carregartres('quatro');
-            carregarcinco('btn-continue');
-        }, 17000);
-
-        //funções para aparecer texto
-        function carregar() {
-            document.getElementById("dois ").style.display = "block ";
-        }
-
-        function carregardois() {
-            document.getElementById("tres ").style.display = "block ";
-
-        }
-
-        function carregartres() {
-            document.getElementById("quatro ").style.display = "block ";
-        }
-
-        function carregarcinco() {
-            document.getElementById("btn-continue").style.display = "block ";
-        }
-    </script>
-</head>
-
-<body onLoad="setTimeout(carregar, 5000);">
-
-    <div class="um " id="um ">
-        <h1>
+        let texto = [
+            `
+            <h1>
             25 de Setembro de 2010.
-        </h1>
-    </div>
-    <div class="dois " id="dois " style="display: none; ">
-        <h1>
+        </h1>`,
+            `<h1>
             Charlotte Sophia é dispensada do trabalho mais cedo por seu aniversário. Já no ponto de ônibus, ela vê um celular e decide olhá-lo mais de perto.
-        </h1>
-    </div>
-    <div class="tres " id="tres " style="display: none; ">
-        <h1>
+        </h1>`,
+            `<h1>
             A tela acende.
             <br>
             <br>
             <br> "Elijah?? " <br> "Faz muito tempo que você não me responde, onde você tá? " <br> "?????? " <br> "Elijah, tá tudo bem? " <br> <br> <br> O celular toca logo em seguida.
-        </h1>
-    </div>
-    <div class="quatro " id="quatro " style="display: none; ">
-        <h1>
-            Ela atendeu, e isso é o que nos traz aqui.
-            <br> 14 de Novembro de 2010.
-        </h1>
-    </div>
+            </h1>`,
+            `<h1>
+                Ela atendeu, e isso é o que nos traz aqui.
+                <br> 14 de Novembro de 2010.
+            </h1>`
+        ]
 
-</body>
-<footer>
-    <div class="line typing-animation" id="btn-continue" onclick="" style="display: none;">
-        <h3>Continuar ►</h3>
+        let i = 0
+
+        let periodic = setInterval(function() {
+            if (i >= texto.length - 1) {
+                document.getElementById('btn-continue').style.display = 'block';
+                clearInterval(periodic)
+            }
+            var msg = document.getElementById("main");
+            msg.innerHTML = texto[i]
+
+            i++;
+        }, 3000);
+    </script>
+</head>
+
+<body>
+    <div id="main">
     </div>
-</footer>
+    <footer>
+        <div class="line typing-animation" id="btn-continue" onclick="window.location.href='principal.html'" style="display: none;">
+            <h3>Continuar ►</h3>
+        </div>
+    </footer>
+</body>
+
 
 </html>
