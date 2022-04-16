@@ -13,6 +13,20 @@
 <body>
     <h1>Em desenvolvimento</h1>
     <img src="css/DeadlySecondhandAngelwingmussel-max-1mb.gif" alt="" width="200px">
+    <div id="loading" style="margin-left: auto; margin-right: auto;">
+        loading.
+    </div>
+
+    <script>
+        var loading = document.getElementById('loading')
+        var texto = ['loading.', 'loading..', 'loading...']
+        var i=0
+        setInterval(function(){
+            loading.innerText = texto[i]
+            i++
+            i=i%texto.length
+        }, 1000)
+    </script>
 </body>
 
 </html>
